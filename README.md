@@ -11,7 +11,7 @@ Sample R project for use with conda skeleton cran (without any C code)
 ```
 git clone https://github.com/ciberkleid/helloworld-R.git
 cd helloworld-R
-cf push helloworld-R --random-route -b https://github.com/cloudfoundry/r-buildpack.git -c "R --slave --no-restore --file=helloworld-R.R" -i 0
+cf push helloworld-R --no-route -b https://github.com/cloudfoundry/r-buildpack.git -c "R --slave --no-restore --file=helloworld-R.R" -i 0
 cf run-task helloworld-R "R --slave --no-restore --file=helloworld-R.R" helloworld-R-task
 cf logs helloworld-R --recent
 ```
