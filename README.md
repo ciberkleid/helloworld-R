@@ -4,15 +4,15 @@ Sample R project for use with conda skeleton cran (without any C code)
 # cloud foundry deployment
 
 1. clone repo
+2. push app as a base for tasks (no instances)
+3. run task
+4. check log
 
-2. push app as a base for tasks:
-
-cf push helloworld-R --random-route -b https://github.com/cloudfoundry/r-buildpack.git -c "Rscript R/helloworld-R.R" -i 0
-
-3. run task:
-
-cf run-task helloworld-R "Rscript R/helloworld-R.R" helloworld-R-task
-
-4. check log:
-
+```
+git clone https://github.com/ciberkleid/helloworld-R/edit/master/README.md
+cf push helloworld-R --random-route -b https://github.com/cloudfoundry/r-buildpack.git -c "R --slave --no-restore --file=helloworld-R.R" -i 0
+cf run-task helloworld-R "R --slave --no-restore --file=helloworld-R.R" helloworld-R-task
 cf logs helloworld-R --recent
+```
+
+Note: You might need to wait a few seconds between the task execution and checking the logs to see the logging displayed
