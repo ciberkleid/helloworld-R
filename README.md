@@ -10,3 +10,6 @@ cf push helloworld-R --random-route -b https://github.com/cloudfoundry/r-buildpa
 
 3. run task:
 cf run-task helloworld-R "Rscript R/helloworld-R.R" helloworld-R-task
+
+4. check log:
+cf logs helloworld-R --recent
