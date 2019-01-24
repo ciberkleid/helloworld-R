@@ -16,4 +16,9 @@ cf run-task helloworld-R "R --slave --no-restore --file=helloworld-R.R" hellowor
 cf logs helloworld-R --recent
 ```
 
-Note: You might need to wait a few seconds between the task execution and checking the logs to see the logging displayed
+Note: You might need to wait a few seconds between the task execution and checking the logs to see the logging displayed, but you should see the output of the helloworldR() function printed to the logs each time you execute a task:
+
+```
+   2019-01-24T18:43:04.96-0500 [APP/TASK/5de985ef/0] OUT [1] "helloworldR from R"
+   2019-01-24T18:43:04.97-0500 [APP/TASK/5de985ef/0] OUT Exit status 0
+```
